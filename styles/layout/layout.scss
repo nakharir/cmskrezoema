@@ -9,3 +9,21 @@
 @import "./_responsive";
 @import "./_utils";
 @import "./_typography";
+
+/* KREZOEMA Brand Theme Overrides */
+:root {
+    --primary-color: #D96C91;
+    --primary-color-text: #FFFFFF;
+    --krezoema-primary: #D96C91;
+    --krezoema-dark: #272329;
+    --krezoema-soft: #F8E4EB;
+    --krezoema-bg: #FAF8F5;
+    --krezoema-white: #FFFFFF;
+    --krezoema-dark-pink: #B94F76;
+}
+
+.layout-sidebar .layout-menu li.active-menuitem > a,
+.layout-sidebar .layout-menu a.active-route {
+    color: #D96C91 !important;
+    font-weight: 600;
+}

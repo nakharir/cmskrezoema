@@ -7,7 +7,6 @@ import { LayoutContext } from "./context/layoutcontext";
 import { MenuProvider } from "./context/menucontext";
 import axios from "axios";
 import { API_ENDPOINTS } from "@/app/api/losbackend/api";
-import { Brain } from "lucide-react";
 
 import { AppMenuItem } from "@/types";
 
@@ -47,29 +46,48 @@ const AppMenu = () => {
     fetchSidebar();
   }, []);
 
+  const ecommerceMenu: AppMenuItem = {
+    label: "Ecommerce",
+    items: [
+      {
+        label: "Produk",
+        icon: "pi pi-fw pi-box",
+        to: "/ecommerce/products",
+      },
+      {
+        label: "Kategori",
+        icon: "pi pi-fw pi-tags",
+        to: "/ecommerce/categories",
+      },
+      {
+        label: "Pesanan (Segera Hadir)",
+        icon: "pi pi-fw pi-shopping-bag",
+        disabled: true,
+        class: "opacity-60 cursor-not-allowed",
+      },
+    ],
+  };
+
   // 🧭 Sidebar untuk user biasa
   const modelUser: AppMenuItem[] = [
     {
       label: "Dashboard",
-      items: [{ label: "Dashboard", icon: "pi pi-fw pi-home", to: "/" }],
+      items: [{ label: "Dashboard", icon: "pi pi-fw pi-home", to: "/ecommerce" }],
     },
-    {
-      label: "Data Debitur",
-      icon: "pi pi-users",
-      to: "/user/debitur",
-    },
+    ecommerceMenu,
   ];
 
   // 🧭 Sidebar untuk operator (status = 2)
   const modelOperator: AppMenuItem[] = [
     {
-      label: "Beranda Admin",
+      label: "Dashboard",
       items: [
-        { label: "Beranda Admin", icon: "pi pi-fw pi-home", to: "/operator/" },
+        { label: "Dashboard", icon: "pi pi-fw pi-home", to: "/operator/" },
       ],
     },
+    ecommerceMenu,
     {
-      label: "Manajemen Konten",
+      label: "Konten Website",
       icon: "pi pi-folder-open",
       items: [
         {
@@ -78,46 +96,14 @@ const AppMenu = () => {
           to: "/operator/CMS_Landing",
         },
         {
-          label: "Data Guru",
-          icon: "pi pi-id-card",
-          to: "/operator/CMS_Guru",
+          label: "Profil KREZOEMA",
+          icon: "pi pi-info-circle",
+          to: "/operator/CMS_Profile",
         },
         {
-          label: "Sarana Prasarana",
-          icon: "pi pi-building",
-          items: [
-            {
-              label: "Fasilitas",
-              icon: "pi pi-briefcase",
-              to: "/operator/CMS_Fasilitas",
-            },
-            {
-              label: "Ekstrakurikuler",
-              icon: "pi pi-star",
-              to: "/operator/CMS_Ekskul",
-            },
-          ],
-        },
-        {
-          label: "Profile Sekolah",
-          icon: "pi pi-book",
-          items: [
-            {
-              label: "Profile",
-              icon: "pi pi-user",
-              to: "/operator/CMS_Profile",
-            },
-            {
-              label: "Visi Misi",
-              icon: "pi pi-star",
-              to: "/operator/CMS_VisiMisi",
-            },
-            {
-              label: "Berita",
-              icon: "pi pi-megaphone",
-              to: "/operator/CMS_berita",
-            },
-          ],
+          label: "Berita & Artikel",
+          icon: "pi pi-megaphone",
+          to: "/operator/CMS_berita",
         },
         {
           label: "Hubungi Kami",
@@ -132,10 +118,11 @@ const AppMenu = () => {
   const modelAdmin: AppMenuItem[] = [
     {
       label: "Dashboard",
-      items: [{ label: "Beranda Admin", icon: "pi pi-fw pi-home", to: "/admin/" }],
+      items: [{ label: "Dashboard", icon: "pi pi-fw pi-home", to: "/admin/" }],
     },
+    ecommerceMenu,
     {
-      label: "Kelola Data Admin",
+      label: "Kelola Admin",
       icon: "pi pi-users",
       items: [
         {
@@ -145,8 +132,8 @@ const AppMenu = () => {
         },
       ],
     },
-      {
-      label: "Manajemen Konten",
+    {
+      label: "Konten Website",
       icon: "pi pi-folder-open",
       items: [
         {
@@ -155,46 +142,14 @@ const AppMenu = () => {
           to: "/operator/CMS_Landing",
         },
         {
-          label: "Data Guru",
-          icon: "pi pi-id-card",
-          to: "/operator/CMS_Guru",
+          label: "Profil KREZOEMA",
+          icon: "pi pi-info-circle",
+          to: "/operator/CMS_Profile",
         },
         {
-          label: "Sarana Prasarana",
-          icon: "pi pi-building",
-          items: [
-            {
-              label: "Fasilitas",
-              icon: "pi pi-briefcase",
-              to: "/operator/CMS_Fasilitas",
-            },
-            {
-              label: "Ekstrakurikuler",
-              icon: "pi pi-star",
-              to: "/operator/CMS_Ekskul",
-            },
-          ],
-        },
-        {
-          label: "Profile Sekolah",
-          icon: "pi pi-book",
-          items: [
-            {
-              label: "Profile",
-              icon: "pi pi-user",
-              to: "/operator/CMS_Profile",
-            },
-            {
-              label: "Visi Misi",
-              icon: "pi pi-star",
-              to: "/operator/CMS_VisiMisi",
-            },
-            {
-              label: "Berita",
-              icon: "pi pi-megaphone",
-              to: "/operator/CMS_berita",
-            },
-          ],
+          label: "Berita & Artikel",
+          icon: "pi pi-megaphone",
+          to: "/operator/CMS_berita",
         },
         {
           label: "Hubungi Kami",

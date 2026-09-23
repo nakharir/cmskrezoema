@@ -20,9 +20,24 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
 
     return (
         <div className="layout-topbar">
-            <Link href="/" className="layout-topbar-logo">
-                { <img src={`/demo/images/logo/logosd.png`} alt="logo" />}
-                {/* <span>LOS</span> */}
+            <Link href="/" className="layout-topbar-logo flex align-items-center gap-2">
+                <img
+                    src="/logo-krezoema.png"
+                    alt="KREZOEMA"
+                    style={{ height: '32px' }}
+                    onError={(e) => {
+                        (e.target as HTMLElement).style.display = 'none';
+                    }}
+                />
+                <span className="font-bold text-xl tracking-wide" style={{ color: '#D96C91' }}>
+                    KREZOEMA
+                </span>
+                <span
+                    className="text-xs px-2 py-1 border-round font-medium ml-1 hidden sm:inline-block"
+                    style={{ backgroundColor: '#F8E4EB', color: '#B94F76' }}
+                >
+                    CMS
+                </span>
             </Link>
 
             <button ref={menubuttonRef} type="button" className="p-link layout-menu-button layout-topbar-button" onClick={onMenuToggle}>

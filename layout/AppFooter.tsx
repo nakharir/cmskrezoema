@@ -1,16 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 
-import React, { useContext } from 'react';
-import { LayoutContext } from './context/layoutcontext';
+import React from 'react';
 
 const AppFooter = () => {
-    const { layoutConfig } = useContext(LayoutContext);
-
     return (
-        <div className="layout-footer">
-            <img src={`/layout/images/logo-${layoutConfig.colorScheme === 'light' ? 'dark' : 'white'}.svg`} alt="Logo" height="20" className="mr-2" />
-            by
-            <span className="font-medium ml-2">Rangga Febrian</span>
+        <div className="layout-footer flex align-items-center justify-content-between flex-wrap gap-2 py-3 px-4">
+            <div className="flex align-items-center gap-2">
+                <span className="font-bold text-sm" style={{ color: '#D96C91' }}>
+                    KREZOEMA
+                </span>
+                <span className="text-500 text-xs hidden sm:inline">
+                    — Creative Craft &amp; Handmade Accessories
+                </span>
+            </div>
+            <div className="text-xs text-500">
+                &copy; {new Date().getFullYear()} KREZOEMA Admin Dashboard
+            </div>
         </div>
     );
 };

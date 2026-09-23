@@ -182,7 +182,7 @@ const DataTableWithCRUD: React.FC<DataTableWithCRUDProps> = ({
             {/* === Header Table === */}
             <div className="card">
                 <div className="flex justify-between items-center mb-3 gap-3 flex-wrap">
-                    <h2 className="text-xl font-bold">Daftar Profile Sekolah</h2>
+                    <h2 className="text-xl font-bold">Daftar Profil KREZOEMA</h2>
                     <div className="flex gap-2 items-center">
                         <Dropdown
                             value={filterSection}
@@ -212,7 +212,7 @@ const DataTableWithCRUD: React.FC<DataTableWithCRUDProps> = ({
             {/* =========================== */}
             {/* === Dialog Tambah Data === */}
             {/* =========================== */}
-            <Dialog header="Tambah Profile Sekolah" visible={showDialog} style={{ width: '40rem' }} modal onHide={() => setShowDialog(false)} footer={dialogFooter}>
+            <Dialog header="Tambah Profil KREZOEMA" visible={showDialog} style={{ width: '40rem' }} modal onHide={() => setShowDialog(false)} footer={dialogFooter}>
 
                 <div className="field mb-3">
                     <label>Section</label>
@@ -278,7 +278,7 @@ const DataTableWithCRUD: React.FC<DataTableWithCRUDProps> = ({
             {/* ======================== */}
             {/* === Dialog Edit Data === */}
             {/* ======================== */}
-            <Dialog header="Edit Profile Sekolah" visible={showEditDialog} style={{ width: '40rem' }} modal onHide={() => setShowEditDialog(false)} footer={editDialogFooter}>
+            <Dialog header="Edit Profil KREZOEMA" visible={showEditDialog} style={{ width: '40rem' }} modal onHide={() => setShowEditDialog(false)} footer={editDialogFooter}>
 
                 <div className="field mb-3">
                     <label>Section</label>

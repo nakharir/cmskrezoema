@@ -22,7 +22,7 @@ export function middleware(request: NextRequest) {
         // Cek role/akses berdasarkan path
         if (path === '/') {
             if (user.status === 2 || user.status === 3) {
-                return NextResponse.next()
+                return NextResponse.redirect(new URL('/operator', request.url))
             } else if (user.status === 1) {
                 return NextResponse.redirect(new URL('/admin', request.url))
             }
