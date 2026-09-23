@@ -32,10 +32,20 @@ export function middleware(request: NextRequest) {
             if (user.status === 1) {
                 return NextResponse.next()
             }
+            // Role tidak sesuai
+            return NextResponse.redirect(new URL('/auth/access', request.url))
         }
 
-        // Jika role tidak sesuai dengan path yang diakses
-        return NextResponse.redirect(new URL('/auth/access', request.url))
+        if (path.startsWith('/operator')) {
+            if (user.status === 2 || user.status === 3) {
+                return NextResponse.next()
+            }
+            // Role tidak sesuai
+            return NextResponse.redirect(new URL('/auth/access', request.url))
+        }
+
+        // Path lain yang tidak dikenali — izinkan lewat
+        return NextResponse.next()
         
     } catch (error) {
         // Jika terjadi error parsing JSON
@@ -47,6 +57,7 @@ export const config = {
     matcher: [
         '/',
         '/admin/:path*', 
+        '/operator/:path*',
         '/auth/:path*'
     ]
 }

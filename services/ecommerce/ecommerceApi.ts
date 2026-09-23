@@ -9,8 +9,9 @@ import {
 } from '@/types/ecommerce';
 import { parseCurrency } from './ecommerceUtils';
 
-// Centralized API URL resolution
-const rawBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
+// Centralized API URL resolution — set NEXT_PUBLIC_API_URL in Vercel environment variables
+// Example: https://absentik.site.je/api
+const rawBaseUrl = process.env.NEXT_PUBLIC_API_URL || '';
 // Normalize base url to always have /api (or without trailing slash)
 export const ECOMMERCE_API_BASE_URL = rawBaseUrl.replace(/\/+$/, '');
 

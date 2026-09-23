@@ -20,7 +20,7 @@ export const resolveImageUrl = (url: string | null | undefined): string => {
     if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:') || url.startsWith('data:')) {
         return url;
     }
-    const rawBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+    const rawBaseUrl = process.env.NEXT_PUBLIC_API_URL || '';
     // Remove /api suffix or trailing slash to get root origin
     const origin = rawBaseUrl.replace(/\/api\/?$/, '').replace(/\/+$/, '');
     const cleanPath = url.startsWith('/') ? url : `/${url}`;

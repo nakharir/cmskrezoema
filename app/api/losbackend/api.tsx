@@ -1,5 +1,6 @@
-export const api_url = 'http://127.0.0.1:8000/api';
-// const api_url ='https://e5b1-125-166-8-202.ngrok-free.app/api';
+// API base URL — set NEXT_PUBLIC_API_URL in Vercel environment variables
+// Example: https://absentik.site.je/api
+export const api_url = process.env.NEXT_PUBLIC_API_URL || '';
 
 export const API_ENDPOINTS = {
   //user
